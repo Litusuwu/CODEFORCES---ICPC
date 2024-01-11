@@ -7,11 +7,12 @@ using namespace std;
 #define bucleV4(i, k, n) for(int i = k ; i <= n ; i++)
 #define bucleR1(i, k, n) for(int i = k; i > n ; i--)
 #define bucleR2(i, k, n) for(int i = k; i >= n ; i--)
-
 typedef long long ll;
-
+int ans = 0;
 void Solve(){
-    
+    int n, m;
+    cin >> n >> m;
+    if(m-n>=2)ans++;
 }
 
 
@@ -20,5 +21,6 @@ int main(){
     int time = 1 ;
     cin >> time ;
     while(time--)Solve();
+    cout<<ans;
     return 0;
 }

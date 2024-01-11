@@ -24,6 +24,7 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
+    cin >> n >> m;
     
 }
 

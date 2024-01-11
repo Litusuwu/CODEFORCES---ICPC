@@ -24,7 +24,15 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    cin >> n;
+    if((n/2)%2 != 0 or (n/4) == 0 ) cout << "NO";
+    else{
+        cout<<"YES"<<endl;
+        for(int i = 2 ; i <= n ; i+=2){cout<<i<<" ";ans++;}
+        for(int i = 1 ; i <= n-2 ; i+=2){cout<<i<<" ";l=i;}
+        cout << l + ans + 2 ;
+    }
+    cout<<endl;
 }
 
 
@@ -32,7 +40,7 @@ int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }

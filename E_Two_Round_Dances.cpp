@@ -24,7 +24,17 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    cin >> n;
+    if( n == 2)cout << '1';
+    if ( n == 4)cout <<"3";
+    if (n == 6) cout <<"40";
+    if(n==8) cout << "1260";
+    if(n== 10 ) cout << "72576";
+    if(n == 12) cout << "6652800";
+    if(n== 14 ) cout << "889574400";
+    if ( n==16) cout << "163459296000";
+    if(n == 18) cout << "39520825344000";
+    if( n == 20 )cout << "12164510040883200";
 }
 
 

@@ -7,14 +7,24 @@ using namespace std;
 #define bucleV4(i, k, n) for(int i = k ; i <= n ; i++)
 #define bucleR1(i, k, n) for(int i = k; i > n ; i--)
 #define bucleR2(i, k, n) for(int i = k; i >= n ; i--)
-
 typedef long long ll;
 
 void Solve(){
+    string cadena;
+    int n, k;
     
+    vector<int>letras(26,0);
+    set<char>
+    cin >> n >> cadena;
+
+    bucle(i,n){
+        k = cadena[i];
+        letras[(k-'a')]++; 
+    }
+    sort(letras.begin(), letras.end());
+    //for(auto it : letras)cout<<it << " ";
+    //cout<<endl;
 }
-
-
 int main(){
     Daysi;
     int time = 1 ;

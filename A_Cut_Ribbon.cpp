@@ -19,12 +19,24 @@ typedef vector<ll> vl;
 ll genAns = 0;
 const int SN = 1e6;
 bool prime[SN + 1];
- 
+const int INFNEG = INT_MIN;
 void SieveOfEratosthenes(int n); 
 
+int pieces[3]{};
+
 void Solve(){
-    int n, m, k, l, d, r, ans = 0;
-    
+    ll n, m, k, l, d, r, ans = 0;
+    cin >> n >> pieces[0] >> pieces[1] >> pieces[2];
+    vector<ll>dp(4005, INFNEG);
+    dp[0]=0;
+    for(int i = 1 ; i <= n ; ++i){
+        for(int j = 0 ; j < 3 ; ++j){
+            int nuevo = i - pieces[j];
+            if(nuevo >= 0) dp[i] = max(1 + dp[nuevo], dp[i]);
+        }
+        //cout << dp[i] << " ";
+    }
+    cout << endl << dp[n] << endl;
 }
 
 

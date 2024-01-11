@@ -7,11 +7,22 @@ using namespace std;
 #define bucleV4(i, k, n) for(int i = k ; i <= n ; i++)
 #define bucleR1(i, k, n) for(int i = k; i > n ; i--)
 #define bucleR2(i, k, n) for(int i = k; i >= n ; i--)
-
 typedef long long ll;
 
 void Solve(){
-    
+    int n;
+    char k, z = 'a';
+    cin >> k >> n;
+    bucle(i, 8){
+        if(n-1==i)continue;
+        cout<<k<<i+1<<endl;
+    }
+    bucle(i, 8){
+        if(z==k ){z++;continue;}
+        cout<<z<<n<<endl;
+        z++;
+    }
+
 }
 
 

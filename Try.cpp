@@ -1,33 +1,51 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define Daysi ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)
-#define bucle(i, n) for(int i = 0 ; i < n ; i++)
-#define bucleV2(i, n) for(int i = 0 ; i <= n ; i++)
-#define bucleV3(i, k, n) for(int i = k ; i < n ; i++)
-#define bucleV4(i, k, n) for(int i = k ; i <= n ; i++)
-#define bucleR1(i, k, n) for(int i = k; i > n ; i--)
-#define bucleR2(i, k, n) for(int i = k; i >= n ; i--)
-typedef long long ll;
+#include <iostream>
+#include <unordered_map>
 
-void Solve(){
-    vector<int>test{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    for(int i = 1 ; i < 10 ; i ++){
-        int key = test[i];
-        int j = i - 1;
-        while(j > -1 and test[j]>key){
-            test[j+1]=test[j];
-            j--;
+using namespace std;
+
+int count_distinct_strings(int t, pair<int, string> test_cases[]) {
+    int results[t];
+
+    for (int i = 0; i < t; ++i) {
+        int n = test_cases[i].first;
+        string s = test_cases[i].second;
+
+        // Count occurrences of each character
+        unordered_map<char, int> char_counts;
+        for (char c : s) {
+            char_counts[c]++;
         }
-        test[j+1]=key;
+
+        // Calculate the number of distinct non-empty strings
+        long long total_strings = 1;
+        for (const auto& kv : char_counts) {
+            total_strings *= (kv.second + 1);
+        }
+
+        results[i] = total_strings - 1;  // Subtract 1 for the empty string
     }
-    for(auto it : test)cout<<it<<" ";
+
+    for (int i = 0; i < t; ++i) {
+        cout << results[i] << endl;
+    }
+
+    return 0;
 }
 
+int main() {
+    int t;
+    cin >> t;
 
-int main(){
-    Daysi;
-    int time = 1 ;
-    //cin >> time ;
-    while(time--)Solve();
+    pair<int, string> test_cases[t];
+    for (int i = 0; i < t; ++i) {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        test_cases[i] = make_pair(n, s);
+    }
+
+    count_distinct_strings(t, test_cases);
+
     return 0;
 }

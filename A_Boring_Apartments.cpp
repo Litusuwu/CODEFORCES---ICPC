@@ -24,7 +24,20 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    int con = 10;
+    string str;
+    cin >> str;
+    //cout << str << endl;
+    int num = str.length();
+    int lim = str[0]-'0' - 1;
+
+    rep(i, lim)ans+=10;
+    int ini = 1;
+    rep(i, num){
+        ans+=ini;
+        ini++;
+    }
+    cout << ans << endl;
 }
 
 
@@ -32,7 +45,7 @@ int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }

@@ -17,32 +17,29 @@ typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 ll genAns = 0;
-const int SN = 1e6;
-bool prime[SN + 1];
- 
-void SieveOfEratosthenes(int n); 
 
 void Solve(){
-    int n, m, k, l, d, r, ans = 0;
-    
+    int n, m, k, l, d, ans=0;
+    cin >> n;
+    bool f1=false, f2=false, f3=false, f4=false;
+    set<int>giga;
+    rep(i, n){
+        cin >> m >> k;
+        if(k>0)giga.insert(1);
+        if(k<0)giga.insert(2);
+        if(m>0)giga.insert(3);
+        if(m<0)giga.insert(4);
+    }
+    if(giga.size()==4)cout<<"NO";
+    else cout<<"YES";
+    cout<<endl;
 }
 
 
 int main(){
     Daysi;
-    //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
-}
-
-void SieveOfEratosthenes(int n) {  
-    memset(prime, true, sizeof(prime)); 
-    for (int p = 2; p * p <= n; p++) { 
-        if (prime[p] == true) { 
-            for (int i = p * p; i <= n; i += p) 
-                prime[i] = false; 
-        } 
-    } 
 }

@@ -17,32 +17,31 @@ typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 ll genAns = 0;
-const int SN = 1e6;
-bool prime[SN + 1];
- 
-void SieveOfEratosthenes(int n); 
+
+char matrix[3][3]{};
 
 void Solve(){
-    int n, m, k, l, d, r, ans = 0;
-    
+    int n, m, k, l, d, ans = 0;
+    int cA = 0, cB= 0, cC=0;
+    rep(i, 3){
+        rep(j, 3){
+            cin >> matrix[i][j];
+            if(matrix[i][j]=='A')cA++;
+            else if(matrix[i][j]=='B')cB++;
+            else cC++;
+        }
+    }
+    if(cA<3)cout<<'A';
+    else if (cB <3)cout<<'B';
+    else cout<<'C';
+    cout<<endl;
 }
 
 
 int main(){
     Daysi;
-    //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
-}
-
-void SieveOfEratosthenes(int n) {  
-    memset(prime, true, sizeof(prime)); 
-    for (int p = 2; p * p <= n; p++) { 
-        if (prime[p] == true) { 
-            for (int i = p * p; i <= n; i += p) 
-                prime[i] = false; 
-        } 
-    } 
 }

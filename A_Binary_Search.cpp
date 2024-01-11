@@ -24,7 +24,24 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
+    cin >> n >> m;
+    vector<int>bs(n);
+    rep(i, n)cin >> bs[i];
     
+    while(m--){
+        cin >> d;
+        l = 0; r = n-1;
+        while( l <= r ){
+            int med = (l+r)/2;
+            if(bs[med] == d){
+                cout << "YES" << endl;
+                break;    
+            } 
+            if(bs[med] > d ) r = med - 1;
+            else l = med + 1;
+        }
+        if(not (l <= r)) cout << "NO" << endl;
+    }
 }
 
 

@@ -24,7 +24,27 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    string str;
+    bool f1 = false, f2 = false, f3 = false;
+    cin >> str;
+    rep(i, str.length()){
+        if(f1){
+            if(str[i]=='-')cout<<'0';
+            if(str[i]=='.')cout<<'0';
+            f1=false;
+            i--;
+            continue;
+        }
+        if(f2){
+            if(str[i]=='.')cout<<'1';
+            if(str[i]=='-')cout<<'2';
+            f2=false;
+            continue;
+        }
+        if(str[i]=='.')f1=true;
+        if(str[i]=='-')f2=true;
+    }
+    if(f1)cout<<'0';
 }
 
 

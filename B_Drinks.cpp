@@ -7,18 +7,24 @@ using namespace std;
 #define bucleV4(i, k, n) for(int i = k ; i <= n ; i++)
 #define bucleR1(i, k, n) for(int i = k; i > n ; i--)
 #define bucleR2(i, k, n) for(int i = k; i >= n ; i--)
-
 typedef long long ll;
-
+double ans = 0;
 void Solve(){
-    
+    int n;
+    double p;
+    cin >> n;
+    bucle(i, n){
+        cin >> p;
+        ans += (p/100.0)/n; 
+    }
+    printf("%.12lf", ans*100);
 }
 
 
 int main(){
     Daysi;
     int time = 1 ;
-    cin >> time ;
+    //cin >> time ;
     while(time--)Solve();
     return 0;
 }

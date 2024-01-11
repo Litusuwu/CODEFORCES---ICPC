@@ -23,8 +23,17 @@ bool prime[SN + 1];
 void SieveOfEratosthenes(int n); 
 
 void Solve(){
-    int n, m, k, l, d, r, ans = 0;
-    
+    int n, m, k, l, d, r=0, ans = 0;
+    cin >> n;
+    vector<int>arr(n);
+    rep(i, n){
+        cin >> arr[i];
+        r+=arr[i];
+        ans = max(ans, arr[i]);
+    }
+    cout << ((n)*ans) - r <<endl;
+
+
 }
 
 

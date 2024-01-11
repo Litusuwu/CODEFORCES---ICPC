@@ -7,11 +7,20 @@ using namespace std;
 #define bucleV4(i, k, n) for(int i = k ; i <= n ; i++)
 #define bucleR1(i, k, n) for(int i = k; i > n ; i--)
 #define bucleR2(i, k, n) for(int i = k; i >= n ; i--)
-
 typedef long long ll;
 
 void Solve(){
-    
+    int n;
+    deque<int>pilina;
+    vector<int>chinga(n);
+    bucle(i, n){
+        cin>>chinga[i];
+    }
+    bucle(i,n-1){
+        if(chinga[i]<chinga[i+1])continue;
+
+        pilina.push_back(chinga[i+1])
+    }
 }
 
 

@@ -7,11 +7,23 @@ using namespace std;
 #define bucleV4(i, k, n) for(int i = k ; i <= n ; i++)
 #define bucleR1(i, k, n) for(int i = k; i > n ; i--)
 #define bucleR2(i, k, n) for(int i = k; i >= n ; i--)
-
 typedef long long ll;
 
 void Solve(){
-    
+    int n , m, z, count = 0; 
+    cin >> n >> m ;
+    vector<int> numeros(n);
+    bucle(i, n){
+        cin >> numeros[i];
+        if(i != 0){
+            if(numeros[i-1]>numeros[i])count++;
+        }
+    }
+    // int k = numeros[n-1];
+    // sort(numeros.begin(), numeros.end());
+    if(m!= 1 or count == 0)cout<<"YES";
+    else cout<<"NO";
+    cout<<endl;
 }
 
 

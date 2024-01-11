@@ -24,7 +24,30 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    bool flag = false;
+    cin >> n;
+    vector<pii>pirañas(n);
+    set<int>elem;
+    rep(i, n){
+        cin >> m;pirañas[i].F = m; pirañas[i].S = i+1;
+        elem.insert(m);
+        if(i > 0)if(m != pirañas[i-1].F)flag = true;
+    }
+    if(not flag){cout<<"-1"<<endl;return;}
+
+    vector<pii>pirañas2 = pirañas;
+    sort(pirañas2.begin(), pirañas2.end());
+    int maximun = *max_element(elem.begin(), elem.end());
+    if(pirañas[0].F == maximun and pirañas[1].F!=maximun){
+        cout << pirañas[0].S << endl;
+        return;
+    }
+    REP(i,1,n){    
+        if(pirañas[i].F == maximun and (pirañas[i-1].F!=maximun or pirañas[i+1].F != maximun)){
+            cout << pirañas[i].S <<endl;
+            return;
+        }
+    }
 }
 
 
@@ -32,7 +55,7 @@ int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }

@@ -24,7 +24,19 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    cin >> n;
+    int a=0, b=0;
+    string str1 = "Mishka", str2 = "Chris", str3= "Friendship is magic!^^";
+    rep(i, n){
+        cin >> k >> m;
+        if( m > k ) a++;
+        else if( m < k) b++;
+        else continue; 
+    }
+    if(a==b)cout<<str3;
+    else if(a>b)cout<<str2;
+    else cout << str1;
+    cout << endl;
 }
 
 

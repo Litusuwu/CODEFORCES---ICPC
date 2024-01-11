@@ -24,7 +24,11 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    string str;
+    cin >> str;
+    if((str[0]+str[1]+str[2] == str[str.length()-1] + str[str.length()-2] +str[str.length()-3]))cout<<"YES";
+    else cout<<"NO";
+    cout<<endl;
 }
 
 
@@ -32,7 +36,7 @@ int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }

@@ -24,7 +24,22 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
+    cin >> n;
+    int matrix[3][n+2]{};
+    int dp[3][n+2]{};
+    for(int i = 1 ; i <= n ; i++){
+        cin >> matrix[0][i] >> matrix[1][i] >> matrix[2][i];
+    }
+    dp[0][0] = 0;dp[1][0] = 0;dp[2][0] = 0;
     
+    for(int i = 1 ; i <= n ; i++){
+        
+        dp[0][i] = matrix[0][i] + max(dp[1][i-1], dp[2][i-1]);
+        dp[1][i] = matrix[1][i] + max(dp[0][i-1], dp[2][i-1]);
+        dp[2][i] = matrix[2][i] + max(dp[1][i-1], dp[0][i-1]);  
+        
+    }
+    cout << max(max(dp[0][n], dp[1][n]), dp[2][n]);
 }
 
 

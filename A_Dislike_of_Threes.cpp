@@ -19,24 +19,27 @@ typedef vector<ll> vl;
 ll genAns = 0;
 const int SN = 1e6;
 bool prime[SN + 1];
- 
+vector<int>policarp;
 void SieveOfEratosthenes(int n); 
-
+void Policarp(int n){
+    REP(i,1,n){
+        if(not(i%3 == 0 or (i>10 and (i%10)==3)))policarp.push_back(i);
+    }
+}
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    cin >> n;
+    cout << policarp[n-1]<< endl;
 }
-
-
 int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
+    Policarp(2000);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }
-
 void SieveOfEratosthenes(int n) {  
     memset(prime, true, sizeof(prime)); 
     for (int p = 2; p * p <= n; p++) { 

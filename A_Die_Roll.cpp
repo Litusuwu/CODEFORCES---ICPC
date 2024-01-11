@@ -22,8 +22,29 @@ bool prime[SN + 1];
  
 void SieveOfEratosthenes(int n); 
 
+void fact(int n, int d){
+    int c = gcd(n, d);
+
+    while(c != 1){
+        n /= c;
+        d /= c;
+        c = gcd(n, d); 
+    }
+    cout << n <<"/"<< d;
+
+}
+
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
+    cin >> n >> m;
+
+    l = max(n,m);
+
+    
+    r = 6 - l + 1;
+    d = 6;
+    fact(r, d);
+    
     
 }
 

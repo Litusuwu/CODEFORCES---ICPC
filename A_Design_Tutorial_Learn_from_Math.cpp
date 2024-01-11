@@ -18,19 +18,26 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 ll genAns = 0;
 const int SN = 1e6;
-bool prime[SN + 1];
- 
+bool prime[SN + 1]; 
 void SieveOfEratosthenes(int n); 
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    cin >> n;
+    ans = 2;
+    while(true){
+        if(not prime[(n - ans)] and not prime[ans]){
+            cout<<ans<<" "<<n-ans<<endl;
+            break;
+        }
+        ans++;
+    }
 }
 
 
 int main(){
     Daysi;
-    //SieveOfEratosthenes(SN);
+    SieveOfEratosthenes(SN);
     int time = 1 ;
     //cin >> time ;
     while(time--)Solve();

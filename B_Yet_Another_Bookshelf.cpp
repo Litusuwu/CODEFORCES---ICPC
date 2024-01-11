@@ -23,7 +23,22 @@ bool prime[SN + 1];
 void SieveOfEratosthenes(int n); 
 
 void Solve(){
-    int n, m, k, l, d, r, ans = 0;
+    int n, m, k , l = -1, d, r, ans = 0;
+    cin >> n;
+    vector<int>libraries(n+1);
+    rep(i, n){
+        cin >> libraries[i];
+        if( libraries[i] == 1){
+            if(l == -1)l = i;
+            r = i;
+        }
+    }
+    REP(i, l, r){
+        //cout << libraries[i];
+        if(libraries[i] == 0) ans++;
+    }
+
+    cout << ans << endl;
     
 }
 
@@ -32,7 +47,7 @@ int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }
