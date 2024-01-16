@@ -19,32 +19,15 @@ typedef vector<ll> vl;
 ll genAns = 0;
 const int SN = 1e6;
 bool prime[SN + 1];
-int arr[3]{};
-
-vector<int> memo(4005, -1000000);
-// vector<int> dpi(4005);
-
+ 
 void SieveOfEratosthenes(int n); 
-int dp(int n){
-    if(n == 0)return 0;
-    if(memo[n]!= -1000000)return memo[n];
 
-    rep(i, 3){
-        int ch = n - arr[i];
-        if(ch >= 0){
-            memo[n] = max(memo[n], 1 + dp(ch));
-        }
-    }
-    return memo[n];
-}
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    cin >> n >> arr[0] >> arr[1] >> arr[2];
-    memo[0]=0;
-    // k = dp(n);
-    cout<<dp(n);
-
+    
 }
+
+
 int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
