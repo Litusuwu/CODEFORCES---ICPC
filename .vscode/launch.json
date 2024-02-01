@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": false,
-      "cwd": "/home/litus/Documentos/GitHub/CODEFORCES---ICPC",
-      "program": "/home/litus/Documentos/GitHub/CODEFORCES---ICPC/build/Debug/outDebug",
+      "externalConsole": true,
+      "cwd": "c:/Users/caedz/OneDrive/Old/Documents/GitHub/CODEFORCES---ICPC",
+      "program": "c:/Users/caedz/OneDrive/Old/Documents/GitHub/CODEFORCES---ICPC/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
