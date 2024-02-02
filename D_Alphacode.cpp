@@ -18,16 +18,39 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 ll genAns = 0;
 const int SN = 1e6;
-const int N = 3e3;
+const int N = 6e3;
 bool prime[SN + 1];
-bool done[N][N];
-int dp[N][N];
- 
+bool done[N];
+int dp[N];
+
+string s1;
+int lim = 26;
 void SieveOfEratosthenes(int n); 
+
+int DP(int i){
+    if(i <= 0)return 1;
+    if(done[i])return dp[i];
+    if(s1[i]!='0')dp[i]=DP(i-1);
+    int num = (s1[i-1]-'0')*10+(s1[i]-'0');
+    if(s1[i-1]!='0' and num<=lim  and num>=10)dp[i]+=DP(i-2);
+    done[i]=true;
+    return dp[i];
+}
+
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+    cin >> s1;
+    rep(i, 5005){
+        dp[i]=0;
+        done[i]=false;
+    }
+    if(s1 =="0")return;
+    dp[0]=1;
+    done[0]=true;
+    //int a = 
+    cout<<DP(s1.size()-1)<<endl;
+    Solve();
 }
 
 

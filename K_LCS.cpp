@@ -19,41 +19,44 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 ll genAns = 0;
 const int SN = 1e6;
+const int N = 3e3;
 bool prime[SN + 1];
+bool done[N][N];
+int dp[N][N];
 
-map<string, string> memo;
+string s1, s2, Sans="";
 
 void SieveOfEratosthenes(int n);
 
-string LCS(string c1, string c2, int n, int m, string k1, string k2){
-    string z1 = k1;z1.pop_back();
-    string z2 = k2;z2.pop_back();
-
-    if (m < 0 or n < 0) return "";
-    string key = to_string(n) + "," + to_string(m);
-    if (memo.find(key) != memo.end()){
-        return memo[key];
-    }
-    if (c1[n] == c2[m]){
-        memo[key] = c1[n] + LCS(c1, c2, n - 1, m - 1,z1, z2);
-    }
-    else{
-        string option1 = LCS(c1, c2, n - 1, m, z1, k2);
-        string option2 = LCS(c1, c2, n, m - 1,k1, z2 );
-        memo[key] = (option1.length() > option2.length()) ? option1 : option2;
-    }
-
-    return memo[key];
+int DP(int m, int n){
+    if (m ==s1.length() or n==s2.length()) return 0;
+    if( done[m][n] ) return dp[m][n];
+    dp[m][n] = max(DP(m+1, n), DP(m, n+1));
+    if(s1[m]==s2[n])dp[m][n]=max(dp[m][n], 1+DP(m+1,n+1));
+    done[m][n]=true;
+    return dp[m][n];
 }
-
-void Solve(){
+void recons(int x, int y){
+    if(x == s1.length() or y == s2.length())return;
+    if(DP(x,y)==DP(x+1,y)){
+        recons(x+1,y);
+    }
+    else if (DP(x, y)==DP(x, y+1)){
+        recons(x, y+1);
+    }
+    else if(s1[x]==s2[y] and DP(x, y)== 1 + DP(x+1,y+1)){
+        //cout<<"xd";
+        Sans += s1[x];
+        recons(x+1,y+1);
+    }
+}
+void Solve() {
     int n, m, k, l, d, r, ans = 0;
     string c1, c2, c3;
-    cin >> c1 >> c2;
-
-    c3 = LCS(c1, c2, c1.length() - 1, c2.length() - 1, c1, c2);
-    reverse(c3.begin(), c3.end());
-    cout << c3 << endl;
+    cin >> s1 >> s2;
+    recons(0, 0);
+    cout<<Sans;
+    
 }
 
 int main(){
