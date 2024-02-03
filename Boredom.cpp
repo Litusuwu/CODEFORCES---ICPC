@@ -19,16 +19,35 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 ll genAns = 0;
 const int SN = 1e6;
-const int N = 3e3;
+const int N = 1e5+5;
 bool prime[SN + 1];
-bool done[N][N];
-int dp[N][N];
+bool done[N]{};
+li dp[N]{};
  
 void SieveOfEratosthenes(int n); 
 
+li DP(int i, vector<li>&possible){
+    if(i < 0)return 0;
+    if(i <= 1) return possible[i];
+    if(done[i])return dp[i];
+    done[i]=true;
+    return dp[i] = max(DP(i-1, possible) , DP(i-2, possible)+possible[i]*i);
+}
+
 void Solve(){
-    int n, m, k, l, d, r, ans = 0;
-    
+    li n, m, k, l, d, r, ans = 0;
+    cin >> n;
+    vector<li>possible(N,0);
+    rep(i,n){
+        cin >> m;
+        ans = max(m, ans);
+        possible[m]++;
+    }
+    dp[0]=0;
+    dp[1]=possible[1];
+   // cout<< ans;
+    int c = DP(100000, possible); 
+    cout << DP(100000, possible);
 }
 
 
