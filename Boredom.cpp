@@ -22,7 +22,7 @@ const int SN = 1e6;
 const int N = 1e5+5;
 bool prime[SN + 1];
 bool done[N]{};
-int dp[N]{};
+li dp[N]{};
  
 void SieveOfEratosthenes(int n); 
 
@@ -30,6 +30,7 @@ li DP(int i, vector<li>&possible){
     if(i < 0)return 0;
     if(i <= 1) return possible[i];
     if(done[i])return dp[i];
+    done[i]=true;
     return dp[i] = max(DP(i-1, possible) , DP(i-2, possible)+possible[i]*i);
 }
 
@@ -42,9 +43,11 @@ void Solve(){
         ans = max(m, ans);
         possible[m]++;
     }
+    dp[0]=0;
     dp[1]=possible[1];
    // cout<< ans;
-    cout << DP(ans, possible);
+    int c = DP(100000, possible); 
+    cout << DP(100000, possible);
 }
 
 
