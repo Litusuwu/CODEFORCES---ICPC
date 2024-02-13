@@ -27,6 +27,19 @@ vector<li> dpe1(N, 1e9), dpe2(N, 1e9);
  
 void SieveOfEratosthenes(int n); 
 
+<<<<<<< Updated upstream
+=======
+int DP(int n, vector<int>&levels){
+    if(n < 0)return 0;
+    if(n <= 1){
+        if(levels[n]==0)return 1;
+    }
+    if(done[n])return dp[n];
+    done[n]=true;
+    return dp[n] = 
+}
+
+>>>>>>> Stashed changes
 void Solve(){
     li n, m, k, l, d, r, ans = 0;
     cin >> n;
