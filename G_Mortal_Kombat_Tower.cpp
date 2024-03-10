@@ -27,8 +27,6 @@ vector<li> dpe1(N, 1e9), dpe2(N, 1e9);
  
 void SieveOfEratosthenes(int n); 
 
-<<<<<<< Updated upstream
-=======
 int DP(int n, vector<int>&levels){
     if(n < 0)return 0;
     if(n <= 1){
@@ -39,7 +37,6 @@ int DP(int n, vector<int>&levels){
     return dp[n] = 
 }
 
->>>>>>> Stashed changes
 void Solve(){
     li n, m, k, l, d, r, ans = 0;
     cin >> n;
