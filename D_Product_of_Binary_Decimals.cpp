@@ -23,40 +23,19 @@ const int N = 3e3;
 bool prime[SN + 1];
 bool done[N][N];
 int dp[N][N];
- 
+set<int>numeros;
+vector<int>numerosBin;
+vector<string>numerosString;
 void SieveOfEratosthenes(int n); 
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    string num, binary="0000000";
+    
     bool flag = true;
-    cin >> num;
-    for(int i = 0 ; i < num.length() ; i++){
-        if(num[i]!='1' and num[i]!='0'){
-            flag = false;
-        }
-    }
-    if(flag)cout<<"YES";
-    else{
-        n = stoi(num);
-        
-            for(int mask = 1 ; mask < 1<<5 ; mask++){
-                int numb = 0;
-                for(int bit = 0 ; bit < 5 ; bit++){
-                    if(mask&(1<<bit))numb+=pow(10,bit);
-                }
-                cout<<numb<<endl;
-                while(n%numb==0){
-                    n/=numb;
-                }
-            }
-            if(n<=1)cout<<"YES";
-            else{
-                cout<<"NO";
-            }
-        
-        
-    }
+    cin >> n;
+    auto it = numeros.find(n);
+    if(it!=numeros.end())cout<<"YES";
+    else cout<<"NO";
     cout<<endl;
 }
 
@@ -65,6 +44,22 @@ int main(){
     Daysi;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
+    rep(i, 32) {
+        numerosString.push_back(bitset<5>(i).to_string());
+    }
+     
+    rep(i, 32) {
+        numerosBin.push_back(stoi(numerosString[i]));
+    }
+    rep(i, 32){
+        rep(j, 32){
+            rep(k, 32){
+                rep(z, 32){
+                    numeros.insert(numerosBin[i]*numerosBin[j]*numerosBin[k]*numerosBin[z]);
+                }
+            }
+        }
+    }
     cin >> time ;
     while(time--)Solve();
     return 0;
