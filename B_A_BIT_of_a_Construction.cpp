@@ -27,19 +27,24 @@ int dp[N][N];
 void SieveOfEratosthenes(int n); 
 
 void Solve(){
-    int n, k;
+    ll n, k, m, p;
     cin >> n >> k;
-    vector<int>seq(n, 0);
+    vector<ll>seq;
+    ll ans = k, bit = 0;
+    
     if(n==1){
         cout<<k<<endl;
     }
     else{
-        seq[0]=k-1;
-        seq[1]=1;
-    
-        for(auto it : seq){
-            cout<<it<<" ";
+        while(ans>0){
+            ans/=2;
+            bit++;
         }
+        ans= (1<<(bit-1) )-1;
+        m=ans;
+        p=k-ans;
+        cout<<m<<" "<<p<<" ";
+        for(ll i = 0 ; i < n-2;i++)cout<<"0"<<" ";
         cout<<endl;
     }
        
