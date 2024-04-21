@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/caedz/OneDrive/Old/Documents/GitHub/CODEFORCES---ICPC",
-      "program": "c:/Users/caedz/OneDrive/Old/Documents/GitHub/CODEFORCES---ICPC/build/Debug/outDebug",
+      "cwd": "c:/Users/carlo/OneDrive/Documentos/GitHub/CODEFORCES---ICPC",
+      "program": "c:/Users/carlo/OneDrive/Documentos/GitHub/CODEFORCES---ICPC/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
