@@ -28,16 +28,12 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    int a, b, c;
-    cin >> a >> b >> c;
+    int x1, x2, x3,x4, y1, y2, y3, y4;
+    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4;
+    int min1 = abs(x1-x2), min2 = abs(x1-x3), min3 = abs(x1-x4);
+    ans = min(max(min1, min2), max(min1, min3));
+    cout<<(int)(ans*ans)<<endl;
 
-    if (a < b && b < c) {
-        cout << "STAIR" << endl;
-    } else if (a < b && b > c) {
-        cout << "PEAK" << endl;
-    } else {
-        cout << "NONE" << endl;
-    }
 }
 
 
