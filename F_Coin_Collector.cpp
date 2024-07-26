@@ -27,8 +27,21 @@ int dp[N][N];
 void SieveOfEratosthenes(int n); 
 
 void Solve(){
-    int n, m, k, l, d, r, ans = 0;
+    int n, m, k, l, d, r=0, ans = 1;
+    cin >> n;
+    vector<int>num;
+    rep(i, n){
+        cin >> m ; 
+        num.push_back(m);
+    }
     
+    for(int i = 0 ; i < n-1 ; i++){
+        if(r + num[i] < num[i+1]){
+            ans++;
+            r+=num[i];
+        }
+    }
+    cout << ans << endl;
 }
 
 
@@ -36,7 +49,7 @@ int main(){
     fastio;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }
