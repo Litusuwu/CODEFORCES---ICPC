@@ -35,7 +35,8 @@ void Solve(){
         vector<pair<int,int>>coords, answ;
         ans = 0;
         cin >> n;
-        while(cin >> l >> d && l && d){
+        while(cin >> l >> d){
+            if(l == 0 and d == 0)break;
             coords.push_back(make_pair(l, d));
         }
         sort(coords.begin(), coords.end());
