@@ -25,7 +25,9 @@ bool done[N][N];
 int dp[N][N];
  
 void SieveOfEratosthenes(int n); 
-
+bool f(const pii &a, const pii &b){
+    return a.second > b.second;
+}
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
     
@@ -37,41 +39,39 @@ void Solve(){
         cin >> n;
         while(cin >> l >> d){
             if(l == 0 and d == 0)break;
+            //if(d < 0 or l > n)continue;
             coords.push_back(make_pair(l, d));
         }
-        sort(coords.begin(), coords.end());
+        sort(coords.begin(), coords.end(), f);
 
-        int ob = coords[0].first, lI = coords[0].F, lD = coords[0].S;
-
+        int ob = 0;
+        // for(auto it : coords){
+        //     cout << it.F << " --" << it.S<<endl;
+        // }
+        // cout << coords.size() << endl;
         while(ob < n){
-            int act = ob;
-            for(int i = 1 ; i < coords.size() ; ++i ){
-                if(coords[i].F > act )break;
-                
-                ob = max(ob, coords[i].second);
-                lI = coords[i].first;
-                lD = coords[i].second;
+            int i;
+            for(i = 0 ; i < coords.size(); i++){
+                if(ob < coords[i].S && coords[i].first <= ob){
+                    answ.push_back({coords[i].first, coords[i].second});
+                    ob = coords[i].second;
+                    break;
+                }
             }
-            
-            ans++;
-            answ.push_back(make_pair(lI, lD));
-            
-            if(act < n and ob == act){
-                //cout << r << endl;
-                ans = -1;
-                break;
-            }
+            if(i == coords.size())break;
         }
-        if(ans == -1){
+        if(ob < n){
             cout << '0' << endl;
+            cout << endl;
         }
         else{
-            cout << ans<<endl;
+            sort(answ.begin(), answ.end());
+            cout << answ.size() << endl;
             for(auto it : answ){
-                cout << it.first <<" "<<it.second<<endl;
+                cout << it.first << " " << it.second << endl;
             }
         }
-        cout << endl;
+        
         
     }
 
