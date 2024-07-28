@@ -31,9 +31,49 @@ void Solve(){
     
     cin >> m;
 
-    rep(i, m){
+    rep(z, m){
+        vector<pair<int,int>>coords, answ;
+        ans = 0;
+        cin >> n;
+        while(cin >> l >> d && l && d){
+            coords.push_back(make_pair(l, d));
+        }
+        sort(coords.begin(), coords.end());
+
+        int ob = coords[0].first, lI = coords[0].F, lD = coords[0].S;
+
+        while(ob < n){
+            int act = ob;
+            for(int i = 1 ; i < coords.size() ; ++i ){
+                if(coords[i].F > act )break;
+                
+                ob = max(ob, coords[i].second);
+                lI = coords[i].first;
+                lD = coords[i].second;
+            }
+            
+            ans++;
+            answ.push_back(make_pair(lI, lD));
+            
+            if(act < n and ob == act){
+                //cout << r << endl;
+                ans = -1;
+                break;
+            }
+        }
+        if(ans == -1){
+            cout << '0' << endl;
+        }
+        else{
+            cout << ans<<endl;
+            for(auto it : answ){
+                cout << it.first <<" "<<it.second<<endl;
+            }
+        }
+        cout << endl;
         
     }
+
 }
 
 
@@ -41,7 +81,7 @@ int main(){
     fastio;
     //SieveOfEratosthenes(SN);
     int time = 1 ;
-    cin >> time ;
+    // cin >> time ;
     while(time--)Solve();
     return 0;
 }
