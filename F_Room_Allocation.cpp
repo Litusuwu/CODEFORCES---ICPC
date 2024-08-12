@@ -9,7 +9,7 @@ using namespace std;
 #define all(v) (v).begin(),(v).end()
 #define F first
 #define S second
-#define endl "\n"
+
 typedef long double ld;
 typedef long long ll;
 typedef long long int li;
@@ -17,6 +17,14 @@ typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
+ll genAns = 0;
+const int SN = 1e6;
+const int N = 3e3;
+bool prime[SN + 1];
+bool done[N][N];
+int dp[N][N];
+ 
+void SieveOfEratosthenes(int n); 
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
@@ -26,9 +34,19 @@ void Solve(){
 
 int main(){
     fastio;
+    //SieveOfEratosthenes(SN);
     int time = 1 ;
     //cin >> time ;
     while(time--)Solve();
     return 0;
 }
 
+void SieveOfEratosthenes(int n) {  
+    memset(prime, true, sizeof(prime)); 
+    for (int p = 2; p * p <= n; p++) { 
+        if (prime[p] == true) { 
+            for (int i = p * p; i <= n; i += p) 
+                prime[i] = false; 
+        } 
+    } 
+}
