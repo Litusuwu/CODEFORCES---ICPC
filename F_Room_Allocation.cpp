@@ -28,7 +28,40 @@ void SieveOfEratosthenes(int n);
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
+    priority_queue<pair<pair<int,int>, int>, vector<pair<pair<int,int>, int>>, greater<pair<pair<int,int>, int>>> cola;
     
+    vector<pair<pair<int, int>, int>>cuartos;
+    int index = 1;
+    cin >> n;
+    vector<int>piezas(n);
+    rep(i, n){
+        cin >> r >> d;
+        cuartos.push_back({{r, d}, i});
+    }
+    sort(cuartos.begin(), cuartos.end());
+    rep(i,n){
+        m = cuartos[i].first.first;
+        k = cuartos[i].first.second;
+        r = cuartos[i].second;
+        if(cola.empty()){
+            ans++;
+        }
+        else if(cola.top().first.first < m){
+            index = cola.top().second;
+            cola.pop();
+        }
+        else{
+            ans++;
+            index = ans;
+        }
+        cola.push({{k, m}, index});
+        piezas[r] = index;
+    }
+    cout << ans << endl;
+    for(auto it : piezas){
+        cout << it << " ";
+    }
+    cout << endl;
 }
 
 
