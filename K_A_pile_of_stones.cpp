@@ -19,20 +19,14 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 
 void Solve(){
-    int n, m, k, l, d, r, ans = -1;
-    cin >> n >> m;
-    set<int>locura;
-    rep(z, m){
-        cin >> k >> l;
-        if(k == 1){
-            locura.insert(l);
-        }
-        else{
-            auto it = locura.lower_bound(l);
-            cout << (it != locura.end()? *it : -1) << endl;
-            
-        }
+    int n, m, k, l, d, r, ans = 0;
+    cin >> n;
+    string s; cin >> s;
+    rep(i, s.length()){
+        if(s[i] == '-' and ans > 0)ans--;
+        else if (s[i] == '+')ans++;
     }
+    cout << ans << endl;
 }
 
 

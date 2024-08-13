@@ -19,19 +19,23 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 
 void Solve(){
-    int n, m, k, l, d, r, ans = -1;
-    cin >> n >> m;
-    set<int>locura;
-    rep(z, m){
-        cin >> k >> l;
-        if(k == 1){
-            locura.insert(l);
-        }
-        else{
-            auto it = locura.lower_bound(l);
-            cout << (it != locura.end()? *it : -1) << endl;
-            
-        }
+    int n, m, k, l, d, r, ans = 0;
+    cin >> n;
+    vector<ll>vec(n+1),sum(n+1, 0);
+    for(int i = 0 ; i < n ; i++){
+        cin >> vec[i];
+    }
+    for(int i = 1 ; i <= n ; i++ ){
+        sum[i] = sum[i-1] + vec[i-1]; 
+    } 
+    // for(auto it : sum){
+    //     //   1 2 1 1 2 2 1
+    //     // 0 1 3 4 5 7 9 10 
+    //     cout << it << " ";
+    // }
+    r = 0, l = n;
+    for(int i = n-1; i > n; i--){
+        if(sum[l] - sum[i] < sum[i] - sum[i])
     }
 }
 
@@ -39,7 +43,7 @@ void Solve(){
 int main(){
     fastio;
     int time = 1 ;
-    //cin >> time ;
+    // cin >> time ;
     while(time--)Solve();
     return 0;
 }
