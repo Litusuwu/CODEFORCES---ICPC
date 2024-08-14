@@ -21,7 +21,34 @@ typedef vector<ll> vl;
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
     
+    cin >> n;
 
+    vector<int>vec(n);
+
+    rep(i, n){
+        cin >> vec[i];
+    }
+
+    sort(vec.begin(), vec.end());
+
+    cin >> m;
+    rep(i, m){
+        cin >> k;
+        l = 0, r = n-1;
+        int med = 0;
+        bool flag = false;
+        while(l <= r){
+            med = l + (r-l)/2;
+            int val = vec[med];
+            if(vec[med] > k){
+                r = med - 1;
+            }
+            else{
+                l = med + 1;
+            }
+        }
+        cout <<(l < n?  l : n) << endl;
+    }
 }
 
 
