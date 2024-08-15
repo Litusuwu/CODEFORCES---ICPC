@@ -32,9 +32,9 @@ void Solve(){
     sort(vec.begin(), vec.end());
 
     cin >> m;
+    l = 0, r = n-1;
     rep(i, m){
         cin >> k;
-        l = 0, r = n-1;
         int med = 0;
         bool flag = false;
         while(l <= r){
