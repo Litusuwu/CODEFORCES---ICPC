@@ -37,6 +37,7 @@ int main(void){
         }
         c3.insert(x);c3.insert(y);
         c1.insert(x);c2.insert(y);
+        //locura
     }
 
     int ans =  INT_MAX, mini = n/2 + (n%2==0? 0 : 1);
