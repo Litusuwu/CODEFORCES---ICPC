@@ -42,8 +42,6 @@ int main(void){
     int ans =  INT_MAX, mini = n/2 + (n%2==0? 0 : 1);
 
     for(auto it : c3){
-        // cout << it << " ";
-        // debug(it);
         if(c1.count(it) >= mini){
             ans = 0;
             break;
