@@ -19,6 +19,7 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 
 bool comp(const string &a, const string &b, const unordered_map<char, int> &rank) {
+    int c;
     int len = min(a.size(), b.size());
     for (int i = 0; i < len; ++i) {
         if (rank.at(a[i]) != rank.at(b[i])) {
