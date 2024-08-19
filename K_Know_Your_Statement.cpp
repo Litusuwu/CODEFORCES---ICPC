@@ -50,7 +50,7 @@ public:
         for(char c : s){
             if(grid[cur][c - 'a'] == -1){
                 return false;
-            }
+            
             cur = grid[cur][c - 'a'];
         }
         return true;
