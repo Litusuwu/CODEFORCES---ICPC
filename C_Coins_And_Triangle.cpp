@@ -17,38 +17,37 @@ typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
-
+ll val(ll med){
+    ll ans=(med*(med+1))/2;
+    return ans;
+}
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    cin >> n >> m;
-    vector<int>v(n);
-    rep(i, n){
-        cin >> v[i];
-    }    
-    while(m--){
-        cin >> k;
-        l = 0;
-        r = n-1;
-        while(l<r){
-            d = (l+r)/2;
-            //1 3 4 5 5 6 7 8 8 17
-            if(v[d] < k){
-                l = d + 1;
-            }
-            else{
-                r = d;
-            }
-        }
+    cin >> n;
+    // vector<int>v(n);
+    l = 1;
+    r = n;
 
-        cout << (v[l]==k? l: -1) << endl;
-    } 
+    while(l <= r){
+        ll med = (l+r)/2;
+        // 1 2 3 4 5 6 7
+        ll value = val(med);
+        if(value <= n){
+            l = med + 1;
+        }
+        else{
+            r = med - 1;
+        }
+        // cout << r << " ";
+    }
+    cout << r << endl;
 }
 
 
 int main(){
     fastio;
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }
