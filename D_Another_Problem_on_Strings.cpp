@@ -20,14 +20,12 @@ typedef vector<ll> vl;
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    
+     
 }
 
 
 int main(){
     fastio;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
     int time = 1 ;
     //cin >> time ;
     while(time--)Solve();
