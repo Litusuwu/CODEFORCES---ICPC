@@ -18,21 +18,15 @@ typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 
+int rec(int n){
+    if(n<=0)return 0;
+    return n/5 + rec(n/5);
+}
+
 void Solve(){
-    long n, m, k, l, d, r, ans = 0;
+    int n, m, k, l, d, r, ans = 0;
     cin >> n;
-    cin >> k;
-    for(int i = 1 ; i < n ; i++){
-        cin >> m;
-        if(k >= m){
-            ans += k - m;
-            k = m + k - m;
-        }
-        else{
-            k = m;
-        }
-    }
-    cout << ans << endl;
+    cout << rec(n); 
 }
 
 

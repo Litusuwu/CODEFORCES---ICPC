@@ -19,22 +19,28 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 
 void Solve(){
-    long n, m, k, l, d, r, ans = 0;
-    cin >> n;
-    cin >> k;
-    for(int i = 1 ; i < n ; i++){
-        cin >> m;
-        if(k >= m){
-            ans += k - m;
-            k = m + k - m;
-        }
-        else{
-            k = m;
-        }
+    int n, m, k, l, d, r, ans = 0;
+    cin >> n ;
+    if(n == 1){
+        cout << "1" << endl;
+        return;
     }
-    cout << ans << endl;
+    if(n <= 3 ){
+        cout << "NO SOLUTION" << endl;
+        return;
+    }
+    vector<int>vec(n+1);
+    for(int i = 0 ; i < n ; i++){
+        vec[i] = i+1;
+    }
+    int med = n/2;
+    cout << vec[med]<< " ";
+    for(int i = 0 , j = n-1; i < n/2; i++, j--){
+        cout << vec[i] << " ";
+        if(vec[j] == vec[med])continue;
+        cout << vec[j] << " ";
+    }
 }
-
 
 int main(){
     fastio;

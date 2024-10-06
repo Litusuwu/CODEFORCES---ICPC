@@ -19,20 +19,11 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 
 void Solve(){
-    long n, m, k, l, d, r, ans = 0;
-    cin >> n;
-    cin >> k;
-    for(int i = 1 ; i < n ; i++){
-        cin >> m;
-        if(k >= m){
-            ans += k - m;
-            k = m + k - m;
-        }
-        else{
-            k = m;
-        }
+    li n, m, k, l, d, r, ans = 0;
+    cin >> m;
+    for(n = 1 ; n <= m ; n++){
+        cout << (n*n*(n*n-1))/2 - 4*(n-1)*(n-2)<< endl;     
     }
-    cout << ans << endl;
 }
 
 

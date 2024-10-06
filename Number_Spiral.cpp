@@ -19,20 +19,25 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 
 void Solve(){
-    long n, m, k, l, d, r, ans = 0;
-    cin >> n;
-    cin >> k;
-    for(int i = 1 ; i < n ; i++){
-        cin >> m;
-        if(k >= m){
-            ans += k - m;
-            k = m + k - m;
-        }
-        else{
-            k = m;
-        }
+    unsigned long long int n=0, m=0, k=0, l=0, d=0, r=0, ans = 0;
+    cin >> n >> m;
+    d = max(n, m) * max(n, m);
+    l = max(n, m) - 1;
+    r = d - l;
+    if(n > m){
+        if(n&1)k = -1;
+        else k = 1;
+
+        r += (n-m)*k;
     }
-    cout << ans << endl;
+    else{
+        if(m&1)k = 1;
+        else k = -1;
+
+        r += (m-n)*k;
+    }
+  
+    cout << r << endl;
 }
 
 
@@ -41,7 +46,7 @@ int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }

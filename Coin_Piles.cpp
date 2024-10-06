@@ -20,19 +20,14 @@ typedef vector<ll> vl;
 
 void Solve(){
     long n, m, k, l, d, r, ans = 0;
-    cin >> n;
-    cin >> k;
-    for(int i = 1 ; i < n ; i++){
-        cin >> m;
-        if(k >= m){
-            ans += k - m;
-            k = m + k - m;
-        }
-        else{
-            k = m;
-        }
+    cin >> n >> m;
+    
+    if((2*m - n) >= 0 and (2*m -n)%3 == 0 and (2*n - m )>= 0 and (2*n -m)%3 == 0){
+        cout << "YES" << endl;
     }
-    cout << ans << endl;
+    else{
+        cout << "NO" << endl;
+    }
 }
 
 
@@ -41,7 +36,7 @@ int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int time = 1 ;
-    //cin >> time ;
+    cin >> time ;
     while(time--)Solve();
     return 0;
 }
