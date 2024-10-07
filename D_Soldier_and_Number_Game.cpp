@@ -18,34 +18,9 @@ typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 
-vector<string> construct(int n){
-    if(n == 1){
-        return {"0", "1"}; 
-    }
-    vector<string>next = construct(n-1), act;
-    
-    
-    for(int i = 0 ; i < next.size(); i++){ 
-        act.push_back("1" + next[i]);
-    }
-    reverse(all(act));
-    for(int i = 0 ; i < next.size(); i++){
-        next[i] = "0" + next[i];
-    }
-    next.insert(next.end(), act.begin(), act.end());
-
-    return next;
-}
-
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    vector<string>grey;
-    string str;
-    cin >> n;
-    grey = construct(n);
-    for(auto it : grey){
-        cout << it << endl;
-    }
+    
 }
 
 
