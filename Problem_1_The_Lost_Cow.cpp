@@ -20,26 +20,14 @@ typedef vector<ll> vl;
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    cin >> n >> m >> k;
-    vector<vector<char>>matrix(n, vector<char>(m));
-    rep(i, n){
-        rep(j,m){
-            cin >> matrix[i][j];
-        }
-    }
-    for(int i = 0; i < k * n; i++){
-		for(int j = 0; j < k * m; j++){
-			cout << matrix[i / k][j / k];
-		}
-		cout << endl;
-	}
+    
 }
 
 
 int main(){
     fastio;
-    freopen("cowsignal.in", "r", stdin);
-    freopen("cowsignal.out", "w", stdout);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
     int time = 1 ;
     //cin >> time ;
     while(time--)Solve();

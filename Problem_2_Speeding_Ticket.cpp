@@ -20,26 +20,33 @@ typedef vector<ll> vl;
 
 void Solve(){
     int n, m, k, l, d, r, ans = 0;
-    cin >> n >> m >> k;
-    vector<vector<char>>matrix(n, vector<char>(m));
+    cin >> n >> m;
+    vector<pair<int,int>>limit, bessie;
     rep(i, n){
-        rep(j,m){
-            cin >> matrix[i][j];
-        }
+        cin >> k >> l;
+        limit.push_back({k, l});
     }
-    for(int i = 0; i < k * n; i++){
-		for(int j = 0; j < k * m; j++){
-			cout << matrix[i / k][j / k];
-		}
-		cout << endl;
-	}
+    rep(i, m){
+        cin >> k >> l;
+        bessie.push_back({k, l});
+    }
+    int rd1 = bessie[0].first, rd2 =limit[0].first, i1 = 0, i2 = 0;
+    
+    for(int i = 1 ; i <= 100  ; i++ ){
+        if(rd1 < i)rd1 += bessie[++i1].first;
+        if(rd2 < i)rd2 += limit[++i2].first;
+
+        if(bessie[i1].second > limit[i2].second)ans=max(ans, bessie[i1].second - limit[i2].second);    
+    }
+    cout << ans << endl;
+
 }
 
 
 int main(){
     fastio;
-    freopen("cowsignal.in", "r", stdin);
-    freopen("cowsignal.out", "w", stdout);
+    freopen("speeding.in", "r", stdin);
+    freopen("speeding.out", "w", stdout);
     int time = 1 ;
     //cin >> time ;
     while(time--)Solve();
